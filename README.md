@@ -22,6 +22,7 @@
 | 10 Agent Desk 点击发送的完整链路 | 本机源码已核对；前后端、上下文、流式响应讲义已准备，学习者追踪待完成 | [第一节源码课](docs/learning/010-agentdesk-send-flow.md) |
 | 11 DeepEval第一项语义指标 | j02真实裁判已核验：有效1/1、与助教参考一致1/1；完整六条与独立修改待完成 | [Python评测实践](docs/learning/011-deepeval-first-metric.md) |
 | 12 已保存判分的自动校准检查 | 基于j02已保存结果的1项离线测试通过、零模型请求；独立练习待完成 | [原理与命令](docs/learning/012-saved-verdict-regression.md) |
+| 13 依据一致性与回答完整性 | 双指标脚本、中文预览和2项离线检查通过；真实双指标判分待运行 | [两把尺子分别评](docs/learning/013-evidence-vs-coverage.md) |
 | 后续模块 | 计划中，尚未完成 | [路线图](docs/ROADMAP.md) |
 
 ## 运行
@@ -50,6 +51,6 @@ python -m unittest -v test_day2 test_session_store
 
 状态区分：计划中 / 已准备 / 已实践 / 已验证 / 已完成。代码由 AI 协助准备、学习者执行与修改；独立理解和独立编码分别验收，不根据文件存在推定已经掌握。
 
-当前学习：[12 答案FAIL与校准测试PASS](docs/learning/012-saved-verdict-regression.md)。09真实裁判及11的j02单例已核验，独立核对保留待完成。按[2026-10-31评测优先安排](docs/EVAL_PROJECTS_PLAN.md)执行；[Agent Desk发送链路](docs/learning/010-agentdesk-send-flow.md)和[较早的开源评测路线](docs/OPEN_SOURCE_EVAL_PATH.md)保留供查阅。
+当前学习：[13 没有编造，不等于回答了问题](docs/learning/013-evidence-vs-coverage.md)。09真实裁判及11的j02单例已核验，独立核对保留待完成。按[评测优先安排](docs/EVAL_PROJECTS_PLAN.md)执行；[Agent Desk发送链路](docs/learning/010-agentdesk-send-flow.md)和[较早的开源评测路线](docs/OPEN_SOURCE_EVAL_PATH.md)保留供查阅。
 
 模板：[知识块记录模板](docs/templates/knowledge-block.md)。

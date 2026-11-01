@@ -1,5 +1,7 @@
 # DeepEval：第一节
 
+2026-11-01新增[第13节：依据与完整性](../../docs/learning/013-evidence-vs-coverage.md)。`python two_metrics.py --preview`零请求；`python two_metrics.py --run`默认只给j05的两个维度分别评分，正常2次请求；`python two_metrics.py --report`读取本节保存结果。真实双指标判分待运行。两个指标不平均成总分，本节也不评真实工具执行是否完成。
+
 状态（2026-10-31）：服务器独立Python环境已安装deepeval==4.3.2；7项离线检查和实际GEval假裁判流程通过。j02真实DeepSeek判分已核验：不通过，有效1/1、与助教参考一致1/1。完整六条与独立修改待完成。本目录不会改动项目原有的Python虚拟环境。
 
 本例使用DeepEval自带GEval，不自制一套同名框架。通过DeepEvalBaseLLM适配DeepSeek。先按[中文讲义](../../docs/learning/011-deepeval-first-metric.md)理解LLMTestCase、metric、threshold。

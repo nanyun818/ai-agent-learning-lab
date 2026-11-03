@@ -1,6 +1,6 @@
 # 14：Langfuse把一次过程和分数联系起来
 
-2026-11-03。状态：SDK与导入脚本已准备；真实SDK的内存导出、4项离线检查通过；学习者需要先注册Langfuse Cloud、创建项目和配置项目凭据，云端实际可见性待验证。本节没有新调用模型，也未改动Agent Desk源码。
+2026-11-03。状态：SDK与导入脚本已准备；真实SDK的内存导出、4项离线检查通过；已在网页确认学习者登录US区域并拥有My Project空项目，项目凭据配置和首条导入记录仍待完成。本节没有新调用模型，也未改动Agent Desk源码。交互默认区域已按实际账号从EU调整为US。
 
 ## 上一节真实结果
 
@@ -34,8 +34,8 @@ learning-saved-evaluation-import（导入已有评测）
 
 ## 注册和创建项目
 
-1. 打开[Langfuse Cloud](https://cloud.langfuse.com/)注册并登录。本课程示例使用EU站点，地址为https://cloud.langfuse.com；如果选择其他区域，BASE_URL必须与该区域一致。
-2. 按界面创建Organization（组织）和Project（项目），项目可命名agent-desk-learning。
+1. 本次实际账号已注册并登录[Langfuse Cloud US](https://us.cloud.langfuse.com/)。后续使用https://us.cloud.langfuse.com，不能沿用先前建议的EU地址。其他学习者应按自己项目的区域设置BASE_URL。
+2. 本次已有My Project，可直接复用，无需重复创建。新环境才需要按界面创建Organization（组织）和Project（项目），项目可命名agent-desk-learning。
 3. 进入项目的Settings → API Keys，创建项目密钥对。Public Key是项目公钥，Secret Key用于鉴权。这两项属于Langfuse，和DeepSeek模型密钥不同；本次无需把DeepSeek密钥配置到Langfuse。
 4. 选择并使用项目级密钥，不使用组织级密钥；本脚本auth_check会读取当前项目信息，初学例子可使用新学习项目的默认权限。凭据只在自己的终端输入，不作为课程文件发布。
 
@@ -51,7 +51,7 @@ python trace_demo.py --preview
 
 服务器已经安装SDK，不需要重装。preview读取旧报告并显示两个实测分数，不上传。
 
-推荐初学方式：直接执行`python trace_demo.py --send`。在SSH交互终端中，如果尚未设置环境变量，程序会依次询问区域根地址、Public Key、Secret Key；EU区域地址直接回车即可。密钥输入不显示、不写文件，仅用于本次进程。它们是Langfuse项目密钥，不是DeepSeek密钥。
+推荐初学方式：直接执行`python trace_demo.py --send`。在SSH交互终端中，如果尚未设置环境变量，程序会依次询问区域根地址、Public Key、Secret Key；本次US区域地址直接回车即可。密钥输入不显示、不写文件，仅用于本次进程。它们是Langfuse项目密钥，不是网站登录密码，也不是DeepSeek密钥。
 
 也可选择下面的环境变量方式。每条read命令分别执行；粘贴相应值并回车后，才执行下一段命令，避免后面的命令被当作输入内容。
 
@@ -69,11 +69,11 @@ read -rsp '输入 Langfuse Secret Key 后回车：' LANGFUSE_SECRET_KEY
 
 ```bash
 export LANGFUSE_SECRET_KEY
-export LANGFUSE_BASE_URL='https://cloud.langfuse.com'
+export LANGFUSE_BASE_URL='https://us.cloud.langfuse.com'
 python trace_demo.py --send
 ```
 
-如果注册的是US或Japan区域，应使用该项目设置中显示的区域根地址，本例允许官方Cloud区域，不连接任意第三方端点。查看网页需要浏览器登录正确组织和项目，不需要15500端口或SSH网页隧道；SSH在这里用于运行服务器上的脚本。
+若使用EU、Japan等其他区域，应使用该项目设置中显示的区域根地址，本例允许官方Cloud区域，不连接任意第三方端点。已设置的LANGFUSE_BASE_URL会优先于交互默认值；若旧终端曾export EU地址，本次应先改为US。查看网页需要浏览器登录正确组织和项目，不需要15500端口或SSH网页隧道；SSH在这里用于运行服务器上的脚本。
 
 ## 网页怎样看
 
@@ -89,7 +89,7 @@ python trace_demo.py --send
 
 ## 验收与留痕
 
-已完成：真实SDK的3个span在内存中形成父子关系、两次score调用引用同一trace ID；无效结果被阻止；非交互环境缺密钥在本地报错；交互隐藏输入的模拟值不写入环境或文件。共4项离线检查通过，没有使用Cloud凭据、没有外部上传。待完成：学习者注册、项目配置、真实--send、网页可见性与自己的解释。原始数据库、生产聊天、服务凭据不发布。
+已完成：真实SDK的3个span在内存中形成父子关系、两次score调用引用同一trace ID；无效结果被阻止；非交互环境缺密钥在本地报错；交互隐藏输入的模拟值不写入环境或文件。共4项离线检查通过；网页另确认账号与空项目位于US。尚未使用Cloud项目密钥上传。待完成：项目凭据配置、真实--send、导入记录网页可见性与自己的解释。原始数据库、生产聊天、服务凭据不发布。
 
 代码：[trace_demo.py](../../evals/langfuse/trace_demo.py)、[离线SDK验证](../../evals/langfuse/test_trace_demo.py)。
 

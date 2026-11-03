@@ -1,6 +1,6 @@
 # Langfuse第一步：导入已有评分
 
-2026-11-03状态：SDK安装、真实SDK内存导出与4项离线检查通过；学习者尚需注册Cloud、创建项目并在自己的服务器终端输入项目密钥。尚未核验云端接入。
+2026-11-03状态：SDK安装、真实SDK内存导出与4项离线检查通过；网页已确认学习者登录US区域并拥有空项目。交互默认地址已改为US；仍需在自己的服务器终端输入项目API密钥，首条导入记录尚未核验。
 
 服务器Python3.10，固定langfuse==4.7.0并按已安装包核对接口。当前最新Python SDK5.1.0要求Python>=3.11，因此本节没有直接升级原Python。依赖装在本目录独立.venv内；完整Langfuse平台没有部署在现有服务器。
 
@@ -26,7 +26,7 @@ python trace_demo.py --preview
 python trace_demo.py --send
 ```
 
-在SSH交互终端中，程序会询问区域地址（默认EU）和两个项目密钥，密钥隐藏输入且不写入文件。也支持预设LANGFUSE_PUBLIC_KEY、LANGFUSE_SECRET_KEY、LANGFUSE_BASE_URL环境变量；非交互模式不会询问缺失值。
+在SSH交互终端中，程序会询问区域地址（默认US）和两个项目密钥，密钥隐藏输入且不写入文件。也支持预设LANGFUSE_PUBLIC_KEY、LANGFUSE_SECRET_KEY、LANGFUSE_BASE_URL环境变量；非交互模式不会询问缺失值。网站登录密码不能代替项目API密钥。
 
 --send才连接Cloud，发起鉴权检查，创建一次“导入已有评测”的trace与两个score，并flush。没有DeepSeek请求。网页出现记录和分数后才算云端接入已核验；SDK调用返回和本地submission收据仅说明已尝试发送。
 

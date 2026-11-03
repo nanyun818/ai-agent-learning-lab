@@ -59,7 +59,7 @@ class TraceDemoTests(unittest.TestCase):
     @patch("trace_demo.input", return_value="")
     @patch("trace_demo.getpass", side_effect=["pk-lf-example", "sk-lf-example"])
     def test_interactive_input_stays_in_memory(self, hidden, prompt, terminal):
-        self.assertEqual(credentials(), ("pk-lf-example", "sk-lf-example", "https://cloud.langfuse.com"))
+        self.assertEqual(credentials(), ("pk-lf-example", "sk-lf-example", "https://us.cloud.langfuse.com"))
         self.assertEqual(os.environ["LANGFUSE_SECRET_KEY"], "")
 
 

@@ -23,7 +23,7 @@
 | 11 DeepEval第一项语义指标 | j02真实裁判已核验：有效1/1、与助教参考一致1/1；完整六条与独立修改待完成 | [Python评测实践](docs/learning/011-deepeval-first-metric.md) |
 | 12 已保存判分的自动校准检查 | 基于j02已保存结果的1项离线测试通过、零模型请求；独立练习待完成 | [原理与命令](docs/learning/012-saved-verdict-regression.md) |
 | 13 依据一致性与回答完整性 | j05真实双指标核验：依据1、完整性0，有效2/2；独立复核待完成 | [两把尺子分别评](docs/learning/013-evidence-vs-coverage.md) |
-| 14 Langfuse第一条记录 | SDK独立安装、4项离线检查与预览通过；Cloud账号/项目与网页接入待完成 | [过程与分数关联](docs/learning/014-langfuse-first-trace.md) |
+| 14 Langfuse第一条记录 | SDK与4项离线检查通过；US账号及空项目已确认，项目密钥配置和首条导入记录待完成 | [过程与分数关联](docs/learning/014-langfuse-first-trace.md) |
 | 后续模块 | 计划中，尚未完成 | [路线图](docs/ROADMAP.md) |
 
 ## 运行

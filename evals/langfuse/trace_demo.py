@@ -86,7 +86,7 @@ def credentials():
     if (not public or not secret or not base) and sys.stdin.isatty():
         print("只在当前服务器终端输入，密钥不会显示或写入文件。")
         if not base:
-            base = input("Langfuse区域根地址，EU项目直接回车：https://cloud.langfuse.com ：").strip() or "https://cloud.langfuse.com"
+            base = input("Langfuse区域根地址，US项目直接回车：https://us.cloud.langfuse.com ：").strip() or "https://us.cloud.langfuse.com"
             base = base.rstrip("/")
         if not public:
             public = getpass("输入项目Public Key后回车：").strip()

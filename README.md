@@ -23,7 +23,8 @@
 | 11 DeepEval第一项语义指标 | j02真实裁判已核验：有效1/1、与助教参考一致1/1；完整六条与独立修改待完成 | [Python评测实践](docs/learning/011-deepeval-first-metric.md) |
 | 12 已保存判分的自动校准检查 | 基于j02已保存结果的1项离线测试通过、零模型请求；独立练习待完成 | [原理与命令](docs/learning/012-saved-verdict-regression.md) |
 | 13 依据一致性与回答完整性 | j05真实双指标核验：依据1、完整性0，有效2/2；独立复核待完成 | [两把尺子分别评](docs/learning/013-evidence-vs-coverage.md) |
-| 14 Langfuse第一条记录 | SDK与4项离线检查通过；US账号及空项目已确认，项目密钥配置和首条导入记录待完成 | [过程与分数关联](docs/learning/014-langfuse-first-trace.md) |
+| 14 Langfuse第一条记录 | 首条US trace、步骤与输入输出已在网页确认；两个正式Score详情待核对 | [网页核验](reports/langfuse-first-trace.md) |
+| 15 Langfuse页面读法 | 全页中文对照与查看顺序已准备；学习者独立查看评分详情待完成 | [页面中文指南](docs/learning/015-langfuse-page-guide.md) |
 | 后续模块 | 计划中，尚未完成 | [路线图](docs/ROADMAP.md) |
 
 ## 运行
@@ -52,6 +53,6 @@ python -m unittest -v test_day2 test_session_store
 
 状态区分：计划中 / 已准备 / 已实践 / 已验证 / 已完成。代码由 AI 协助准备、学习者执行与修改；独立理解和独立编码分别验收，不根据文件存在推定已经掌握。
 
-当前学习：[14 Langfuse过程与分数关联](docs/learning/014-langfuse-first-trace.md)。13真实双指标已核验，Cloud真实接入待完成。按[评测优先安排](docs/EVAL_PROJECTS_PLAN.md)执行；[Agent Desk发送链路](docs/learning/010-agentdesk-send-flow.md)和[较早的开源评测路线](docs/OPEN_SOURCE_EVAL_PATH.md)保留供查阅。
+当前学习：[15 Langfuse页面中文指南](docs/learning/015-langfuse-page-guide.md)。Cloud首条trace已可见，继续核对正式Score详情并学习数据集/实验。按[评测优先安排](docs/EVAL_PROJECTS_PLAN.md)执行；[Agent Desk发送链路](docs/learning/010-agentdesk-send-flow.md)和[较早的开源评测路线](docs/OPEN_SOURCE_EVAL_PATH.md)保留供查阅。
 
 模板：[知识块记录模板](docs/templates/knowledge-block.md)。

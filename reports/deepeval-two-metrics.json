@@ -1,0 +1,27 @@
+{
+  "record_type": "import_of_saved_synthetic_evaluation",
+  "source_file": "dimensions-20261101T060402Z-2646f0c4.json",
+  "source_sha256": "824c327b945f1a79abb5f47c16a70fc47a10153c13a0838ba500eb18432d7e2a",
+  "case_id": "j05",
+  "question": "如何隔离不同项目的依赖？",
+  "reference_documents": "（无资料）",
+  "candidate_answer": "缺少依赖隔离方面的资料，无法根据资料回答。",
+  "original_judge_model": "deepseek-flash",
+  "original_requests_attempted": 2,
+  "scores": [
+    {
+      "key": "evidence",
+      "name": "依据一致性",
+      "value": 1.0,
+      "reason": "资料为空，答案如实说明缺少资料无法回答，未编造事实，符合第2条。"
+    },
+    {
+      "key": "coverage",
+      "name": "回答完整性",
+      "value": 0.0,
+      "reason": "回答仅称缺少资料无法回答，未给出隔离项目依赖的操作方法，未实质回答用户问题。"
+    }
+  ],
+  "new_model_calls": 0,
+  "timing_scope": "Import operations only; original judge latency is not reconstructed"
+}

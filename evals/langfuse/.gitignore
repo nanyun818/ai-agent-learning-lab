@@ -1,0 +1,5 @@
+.venv/
+results/
+install.log
+installed-versions.txt
+.env

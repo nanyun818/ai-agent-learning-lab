@@ -1,10 +1,10 @@
-# AI 应用与产品实践学习记录
+# AI Agent Learning Lab · AI 应用与 Agent 学习实验室
 
 围绕一个知识与办事助手，逐步学习 Python、模型 API、RAG、长期记忆、Agent、评测、数据分析和产品设计。
 
-当前顺序（2026-10-31）：[先学七个开源评测项目](docs/EVAL_PROJECTS_PLAN.md)，重点实践promptfoo、DeepEval和Langfuse，再评测既有Agent Desk。[桌面项目能力与源码地图](docs/AGENT_DESK_LEARNING.md)继续作为应用参考。
+当前主线（2026-11-05）：直接评测本地 Agent Desk，围绕真实失败学习检索、上下文、生成、评分和改进。[首轮真实后端评测](reports/agentdesk-first-baseline.md)已跑通；[桌面项目能力与源码地图](docs/AGENT_DESK_LEARNING.md)继续作为应用参考。此前的[七个评测项目安排](docs/EVAL_PROJECTS_PLAN.md)保留查阅，不再要求逐个学完框架后才评应用。
 
-仓库名是 `memo0`，这是个人学习仓库；Mem0 官方项目另见 [mem0ai/mem0](https://github.com/mem0ai/mem0)。当前代码尚未集成 Mem0。
+仓库已由 `memo0` 更名为 `ai-agent-learning-lab`。这是个人学习实验室；Mem0 官方项目另见 [mem0ai/mem0](https://github.com/mem0ai/mem0)。当前代码尚未集成 Mem0。
 
 ## 当前进度
 
@@ -25,6 +25,7 @@
 | 13 依据一致性与回答完整性 | j05真实双指标核验：依据1、完整性0，有效2/2；独立复核待完成 | [两把尺子分别评](docs/learning/013-evidence-vs-coverage.md) |
 | 14 Langfuse第一条记录 | 首条US trace、步骤与输入输出已在网页确认；两个正式Score详情待核对 | [网页核验](reports/langfuse-first-trace.md) |
 | 15 Langfuse页面读法 | 全页中文对照与查看顺序已准备；学习者独立查看评分详情待完成 | [页面中文指南](docs/learning/015-langfuse-page-guide.md) |
+| 16 本地Agent Desk项目评测 | 8任务、9次真实生成；规则初筛7/8，发现换问法漏检和编造引用；人工复核待完成 | [首轮实测](reports/agentdesk-first-baseline.md) · [工具与原理](docs/learning/016-agentdesk-project-evaluation.md) |
 | 后续模块 | 计划中，尚未完成 | [路线图](docs/ROADMAP.md) |
 
 ## 运行
@@ -53,6 +54,6 @@ python -m unittest -v test_day2 test_session_store
 
 状态区分：计划中 / 已准备 / 已实践 / 已验证 / 已完成。代码由 AI 协助准备、学习者执行与修改；独立理解和独立编码分别验收，不根据文件存在推定已经掌握。
 
-当前学习：[15 Langfuse页面中文指南](docs/learning/015-langfuse-page-guide.md)。Cloud首条trace已可见，继续核对正式Score详情并学习数据集/实验。按[评测优先安排](docs/EVAL_PROJECTS_PLAN.md)执行；[Agent Desk发送链路](docs/learning/010-agentdesk-send-flow.md)和[较早的开源评测路线](docs/OPEN_SOURCE_EVAL_PATH.md)保留供查阅。
+当前学习：[16 评测自己的Agent Desk](docs/learning/016-agentdesk-project-evaluation.md)。[评测入口](evals/agentdesk/README.md)直接加载本机含未提交改动的源码，无需先上传应用；先固定基线、分析失败、再改进和同题复测。Langfuse过程与评分接入留在后续，首轮结果没有自动上传平台。[页面指南](docs/learning/015-langfuse-page-guide.md)和[发送链路](docs/learning/010-agentdesk-send-flow.md)保留查阅。
 
 模板：[知识块记录模板](docs/templates/knowledge-block.md)。

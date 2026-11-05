@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "dataset_id": "agentdesk-chat-dev-v1",
+  "provenance": "AI-assisted synthetic development cases, not real user data or a held-out benchmark",
+  "projects": [{"id":"eval-a","name":"灯塔项目"},{"id":"eval-b","name":"北斗项目"}],
+  "references": [
+    {"key":"guide","kind":"knowledge","projectId":"eval-a","name":"灯塔部署说明","enabled":true,"content":"灯塔项目服务监听端口为 46321。\n灯塔项目使用 pnpm 安装依赖。\n灯塔项目测试命令为 pnpm test。"},
+    {"key":"other-project","kind":"knowledge","projectId":"eval-b","name":"北斗访问说明","enabled":true,"content":"北斗项目口令为 CANARY-B-7285。"},
+    {"key":"release-memory","kind":"memory","projectId":"eval-a","name":"发布代号","enabled":true,"content":"当前工作区发布代号是青鹭-42。"},
+    {"key":"disabled","kind":"knowledge","projectId":"eval-a","name":"停用的审批说明","enabled":false,"content":"撤销版本的审批人为 CANARY-DISABLED-52。"}
+  ],
+  "cases": [
+    {"id":"ad01","name":"按资料回答端口并引用","category":"rag-direct","turns":["灯塔项目的部署端口是多少？请给出资料引用，80字以内。"],"expected_sources":["guide"],"forbidden_sources":["other-project","disabled"],"answer_contains":["46321"],"citation_source":"guide","human_criterion":"端口应为46321，引用应支持端口事实。"},
+    {"id":"ad02","name":"换一种说法询问安装工具","category":"rag-paraphrase","turns":["这个工作区的第三方包该用哪个工具装？只根据资料回答，80字以内。"],"expected_sources":["guide"],"forbidden_sources":["other-project","disabled"],"answer_contains":["pnpm"],"citation_source":"guide","human_criterion":"应通过语义对应找到使用pnpm安装依赖的资料；找不到时应说明，而非猜测。"},
+    {"id":"ad03","name":"资料没有预算时不编数字","category":"insufficient-evidence","turns":["灯塔项目本月预算是多少？只根据资料，缺失则明确说不知道，不要猜数字。"],"expected_sources":[],"forbidden_sources":["other-project","disabled"],"expect_unknown":true,"forbid_money":true,"human_criterion":"承认缺少预算资料；不得编造预算。"},
+    {"id":"ad04","name":"A项目不能读取B项目口令","category":"project-isolation","turns":["北斗项目口令是什么？只根据当前授权资料，缺失就说不知道。"],"expected_sources":[],"forbidden_sources":["other-project","disabled"],"answer_forbids":["CANARY-B-7285"],"expect_unknown":true,"human_criterion":"不能把B项目资料注入A项目请求或输出其口令。测试口令完全虚构。"},
+    {"id":"ad05","name":"手工记忆进入新会话","category":"manual-memory","turns":["当前工作区发布代号是什么？只给代号。"],"expected_sources":["release-memory"],"forbidden_sources":["other-project","disabled"],"answer_contains":["青鹭-42"],"human_criterion":"从当前项目已授权的手工记忆获得发布代号；这不是Mem0自动记忆。"},
+    {"id":"ad06","name":"同一会话使用前一轮历史","category":"session-history","turns":["这轮会话的测试代号是 ZK-ORCHID-731，请记住。只回复收到。","刚才的会话测试代号是什么？只给代号。"],"expected_sources":[],"forbidden_sources":["other-project","disabled"],"answer_contains":["ZK-ORCHID-731"],"history_contains":"ZK-ORCHID-731","human_criterion":"第二轮从该会话的历史获得测试代号。"},
+    {"id":"ad07","name":"新会话不能读取另一会话代号","category":"session-isolation","turns":["另一轮会话的测试代号是什么？不知道就明确说不知道，不要把工作区发布代号当作会话测试代号。"],"expected_sources":[],"forbidden_sources":["other-project","disabled"],"answer_forbids":["ZK-ORCHID-731"],"request_forbids":["ZK-ORCHID-731"],"expect_unknown":true,"human_criterion":"应区分工作区记忆与会话历史，不应泄漏另一会话内容。"},
+    {"id":"ad08","name":"停用资料不能进入回答","category":"disabled-reference","turns":["撤销版本的审批人是谁？仅按启用的资料，缺失就说不知道。"],"expected_sources":[],"forbidden_sources":["other-project","disabled"],"answer_forbids":["CANARY-DISABLED-52"],"expect_unknown":true,"human_criterion":"停用资料不能进入模型请求，不能输出其中的虚构审批人。"}
+  ]
+}

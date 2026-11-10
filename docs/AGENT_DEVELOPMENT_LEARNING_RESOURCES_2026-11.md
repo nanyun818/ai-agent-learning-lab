@@ -42,3 +42,19 @@ Hello-Agents可针对当前项目选择：
 每个知识块继续保留：自己的解释、对应源码位置、可复现的合成实验、结果与失败分析，以及GitHub提交。当前已验证的8任务基线见[Agent Desk首轮报告](../reports/agentdesk-first-baseline.md)。
 
 官方课程入口：[Hello-Agents在线教材](https://datawhalechina.github.io/hello-agents/)、[Hugging Face课程](https://huggingface.co/learn/agents-course/)、[LangChain Academy](https://academy.langchain.com/)。以上仓库名称和课程概况直接取自各项目官方README；推荐顺序是结合当前学习进度作出的判断。
+
+## 补充：更近期的Agent与Harness课程（2026-11-10）
+
+用户希望进一步寻找较新项目。本节分别列GitHub仓库创建时间和最近推送时间，避免把“近期维护”误说成“今年新项目”。日期来自各仓库GitHub REST API；仓库创建时间不等于课程首次发表时间。只核对README、目录和元数据，尚未运行或复现课程代码。
+
+| 仓库 | 创建日期 | 最近推送日期 | 内容与适用性 |
+|---|---|---|---|
+| [Learn Harness Engineering](https://github.com/walkinglabs/learn-harness-engineering) | 2026-03-29 | 2026-10-22 | 有简体中文；围绕指令、工具、环境、状态、反馈构建可验证的编码Agent工作环境，包含项目练习。适合解释Agent Desk模型之外的工程机制。 |
+| [Building a Coding Agent From Scratch](https://github.com/decodingai-magazine/building-a-coding-agent-from-scratch-course) | 2026-06-19 | 2026-10-24 | 英文；8篇文章、6个视频与一套coding-agent代码，覆盖工具、权限、上下文压缩、记忆、会话及评测。适合沿一个项目看完整实现。 |
+| [AI Engineering From Scratch](https://github.com/rohitg00/ai-engineering-from-scratch) | 2026-03-18 | 2026-11-10 | 广泛的AI工程课程；按需查看Phase 14 Agent Engineering，以及MCP、Skills和评测相关章节，不建议从头通读整套大课程。 |
+
+另外，[Learn Claude Code](https://github.com/shareAI-lab/learn-claude-code)创建于2025-06-29，最近推送2026-10-27，不是2026新建项目。当前目录有Agent Loop、工具、权限、Hooks、Skills、上下文压缩、记忆、任务系统、MCP和集成Harness等递进实现，有中文README，适合作为Agent Desk的代码对照。
+
+建议关注顺序是：Learn Harness Engineering理解系统组成 → Learn Claude Code按模块读实现 → 对照本地Agent Desk做真实实验；需要更完整英文项目时选Building a Coding Agent From Scratch。原来的中文基础教程仍可查阅，不再把通读多套课程当成进入项目实践的前提。当前应用评测与promptfoo/Langfuse接入主线保留。
+
+另核对了两个小型候选：[cosolar/AgentLearn](https://github.com/cosolar/AgentLearn)创建于2026-05-24、最近推送2026-11-02，约25 stars；[KeWang0622/agent-zero-to-hero](https://github.com/KeWang0622/agent-zero-to-hero)创建于2026-05-02、最近推送2026-10-27，约55 stars。它们较新但社区验证规模小，先作为补充阅读，不能因为更新时间新就推断代码质量更高。所有关注度和日期均为查询时快照。
